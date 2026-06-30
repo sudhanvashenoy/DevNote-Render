@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: knowbase
+    runtime: node
+    plan: free
+    region: oregon
+    branch: main
+    buildCommand: cd backend && npm install
+    startCommand: node backend/server.js
+    healthCheckPath: /api/status
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: TRUST_PROXY
+        value: "1"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: VAULT_KEY
+        generateValue: true
+      - key: ALLOWED_ORIGIN
+        sync: false
+      - key: GDRIVE_CLIENT_ID
+        sync: false
+      - key: GDRIVE_CLIENT_SECRET
+        sync: false
+      - key: GDRIVE_REFRESH_TOKEN
+        sync: false

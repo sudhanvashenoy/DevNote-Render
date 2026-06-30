@@ -1,0 +1,6 @@
+data/
+uploads/
+watch/
+backups/
+node_modules/
+.env
